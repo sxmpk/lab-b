@@ -34,6 +34,8 @@ pomiarów ustaw własny `DATABASE_URL` w ignorowanym `.env.local` i odpowiedni s
 - `docs/AI2-LB-grN-nazwisko-imie.pdf` — roboczy eksport, do ponownego wygenerowania po uzupełnieniu.
 - `docs/erd.drawio` — edytowalny diagram do otwarcia w https://app.diagrams.net/.
 - `docs/erd.png` — obraz diagramu umieszczony w DOCX.
+- `docs/github-lab-b.png` — rzeczywisty zrzut opublikowanej gałęzi.
+- `docs/symfony-welcome.png` — kontrolny zrzut strony na porcie 8000, bez paska adresu.
 
 Przed oddaniem:
 
