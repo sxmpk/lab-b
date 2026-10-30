@@ -1,0 +1,13 @@
+App\Entity\Measurement:
+    properties:
+        location:
+            - NotNull: { message: 'Wybierz lokalizację nowego pomiaru.', groups: [new] }
+            - NotNull: { message: 'Edytowany pomiar musi mieć lokalizację.', groups: [edit] }
+        date:
+            - NotNull: { message: 'Podaj datę pomiaru.', groups: [new, edit] }
+        celsius:
+            - NotNull: { message: 'Podaj temperaturę.', groups: [new, edit] }
+            - GreaterThanOrEqual: { value: -273.15, message: 'Temperatura nie może być niższa niż -273,15°C.', groups: [new, edit] }
+        humidity:
+            - NotNull: { message: 'Podaj wilgotność.', groups: [new, edit] }
+            - Range: { min: 0, max: 100, notInRangeMessage: 'Wilgotność musi być między 0 a 100%.', groups: [new, edit] }

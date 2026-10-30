@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nowy pomiar{% endblock %}
+
+{% block body %}
+    <h1>Nowy pomiar</h1>
+
+    {{ include('measurement/_form.html.twig') }}
+
+    <a href="{{ path('app_measurement_index') }}">Powrót do listy</a>
+{% endblock %}

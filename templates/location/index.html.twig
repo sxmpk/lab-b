@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lokalizacje{% endblock %}
+
+{% block body %}
+    <h1>Lokalizacje</h1>
+
+    <div class="table-responsive">
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Miasto</th>
+                <th>Państwo</th>
+                <th>Szerokość</th>
+                <th>Długość</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for location in locations %}
+            <tr>
+                <td>{{ location.id }}</td>
+                <td>{{ location.city }}</td>
+                <td>{{ location.country }}</td>
+                <td>{{ location.latitude }}</td>
+                <td>{{ location.longitude }}</td>
+                <td>
+                    <a href="{{ path('app_location_show', {'id': location.id}) }}">Szczegóły</a>
+                    <a href="{{ path('app_location_edit', {'id': location.id}) }}">Edytuj</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Brak rekordów</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <a href="{{ path('app_location_new') }}" class="btn btn-primary">Dodaj</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+App\Entity\Location:
+    properties:
+        city:
+            - NotBlank: { message: 'Podaj miasto nowej lokalizacji.', groups: [new] }
+            - NotBlank: { message: 'Miasto edytowanej lokalizacji nie może być puste.', groups: [edit] }
+            - Length: { max: 255, groups: [new, edit] }
+        country:
+            - NotBlank: { message: 'Wybierz państwo.', groups: [new, edit] }
+            - Country: { message: 'Wybierz poprawne państwo.', groups: [new, edit] }
+        latitude:
+            - NotBlank: { message: 'Podaj szerokość geograficzną.', groups: [new, edit] }
+            - Range: { min: -90, max: 90, notInRangeMessage: 'Szerokość musi być między -90 a 90.', groups: [new, edit] }
+        longitude:
+            - NotBlank: { message: 'Podaj długość geograficzną.', groups: [new, edit] }
+            - Range: { min: -180, max: 180, notInRangeMessage: 'Długość musi być między -180 a 180.', groups: [new, edit] }

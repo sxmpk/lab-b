@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pomiary{% endblock %}
+
+{% block body %}
+    <h1>Pomiary</h1>
+
+    <div class="table-responsive">
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Lokalizacja</th>
+                <th>Data</th>
+                <th>Temperatura (°C)</th>
+                <th>Wilgotność (%)</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for measurement in measurements %}
+            <tr>
+                <td>{{ measurement.id }}</td>
+                <td>{{ measurement.location.city }} ({{ measurement.location.country }})</td>
+                <td>{{ measurement.date ? measurement.date|date('Y-m-d') : '' }}</td>
+                <td>{{ measurement.celsius }}</td>
+                <td>{{ measurement.humidity }}</td>
+                <td>
+                    <a href="{{ path('app_measurement_show', {'id': measurement.id}) }}">Szczegóły</a>
+                    <a href="{{ path('app_measurement_edit', {'id': measurement.id}) }}">Edytuj</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Brak rekordów</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <a href="{{ path('app_measurement_new') }}" class="btn btn-primary">Dodaj</a>
+{% endblock %}
